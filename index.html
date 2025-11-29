@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王先生官方网站 - 网站开发 | SEO优化 | SEM营销推广 | 海外独立站运营</title>
+    <meta name="description" content="王先生，互联网从业者，十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作。">
+    <meta name="keywords" content="王先生,SEO,SEM,SEO优化,SEM营销推广,网站开发,网络营销,搜索引擎优化,网站运营优化,数字营销,海外独立站运营">
+    <meta name="author" content="王先生">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.guanfangwangzhan.com/">
+    <meta property="og:title" content="王先生官方网站">
+    <meta property="og:description" content="王先生，互联网从业者，十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作。">
+    <meta property="og:image" content="https://www.wangxiansheng.com/images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.guanfangwangzhan.com/">
+    <meta property="twitter:title" content="王先生官方网站">
+    <meta property="twitter:description" content="王先生，互联网从业者，十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作。">
+    <meta property="twitter:image" content="https://www.wangxiansheng.com/images/logo.png">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --primary-dark: #0d47a1;
+            --primary-light: #e3f2fd;
+            --accent-color: #ff6d00;
+            --dark-bg: #0d1b2a;
+            --light-bg: #f8f9fa;
+            --text-color: #212529;
+            --text-light: #6c757d;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏 - 已移除固定定位 */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-color) !important;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* 通用部分样式 */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* 关于我部分 - 调整了顶部间距 */
+        #about {
+            background-color: var(--light-bg);
+            padding-top: 3rem; /* 从7rem改为3rem */
+        }
+        
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-description {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            text-align: center;
+        }
+        
+        /* 技能部分 */
+        .skills-section {
+            background-color: var(--light-bg);
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* 服务部分 */
+        .services-section {
+            background-color: white;
+        }
+        
+        .service-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 项目经验部分 */
+        .projects-section {
+            background-color: var(--light-bg);
+        }
+        
+        .project-card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .project-tags {
+            margin-top: 1.5rem;
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 联系我部分 */
+        .contact-section {
+            background-color: white;
+        }
+        
+        .contact-info {
+            background-color: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25);
+            outline: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .contact-details {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .copyright {
+            margin: 0;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profile-description {
+                font-size: 1.1rem;
+            }
+            
+            #about {
+                padding-top: 2rem; /* 移动端调整为2rem */
+            }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 - 已移除固定定位 -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">王先生</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">关于我</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">服务项目</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">专业技能</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">项目经验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 关于我部分 -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h1 class="profile-name">王先生</h1>
+                    <p class="profile-description">十余年营销推广实战经验，专注于网络营销和搜索引擎优化推广工作。</p>
+                    <p>始终坚持以客户需求为导向，通过专业的技术能力和市场洞察力，为客户创造最大价值。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务项目部分 -->
+    <section id="services" class="services-section section-padding">
+        <div class="container">
+            <h2 class="section-title">服务项目</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">SEO优化</h3>
+                            <p>通过关键词优化、内容策略和技术SEO提升网站在搜索引擎中的排名，增加自然流量。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">SEM营销</h3>
+                            <p>通过搜索引擎广告投放，精准定位目标用户，快速提升品牌曝光和转化率。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">网站开发</h3>
+                            <p>基于WordPress等平台，开发响应式网站，提供定制化功能和优化用户体验。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">数据分析</h3>
+                            <p>通过数据分析工具，挖掘用户行为与需求，为产品优化和营销策略提供数据支撑。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">内容营销</h3>
+                            <p>制定内容策略，创作高质量内容，提升品牌影响力和用户粘性。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">网站维护</h3>
+                            <p>提供网站日常维护、安全防护、性能优化和内容更新等服务。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专业技能部分 -->
+    <section id="skills" class="skills-section section-padding">
+        <div class="container">
+            <h2 class="section-title">专业技能</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="skill-title">营销推广</h3>
+                        <p>SEO、SEM，具有丰富优化和推广经验，帮助多家企业提升品牌曝光和转化。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="skill-title">数据分析</h3>
+                        <p>擅长运用数据分析工具挖掘用户行为与需求，为产品优化和营销策略提供数据支撑。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-title">前端技术</h3>
+                        <p>熟练掌握HTML、CSS、JavaScript，能够基于Bootstrap框架独立开发和优化网站前端。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="skill-title">后端技术</h3>
+                        <p>擅长PHP，特别是在WordPress平台上开发和定制网站，熟悉MySQL数据库。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="skill-title">开发工具</h3>
+                        <p>熟悉Sublime Text、Dreamweaver等开发工具，快速构建和调试项目。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="skill-title">域名与服务器</h3>
+                        <p>精通域名管理和服务器运维，具备独立部署和维护Web环境能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经验部分 -->
+    <section id="projects" class="projects-section section-padding">
+        <div class="container">
+            <h2 class="section-title">项目经验</h2>
+            <div class="row g-4">
+
+                <!-- 装修平台运营 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">装修平台运营</h3>
+                            <p>为面向装修业主和装修公司的服务平台提供运营支持。整合设计师、施工团队与材料供应商资源，通过界面改进、流程简化和内容优化，让用户更容易找到适合的装修方案，同时帮助装修企业获得稳定的客户咨询。</p>
+                            <div class="project-tags">
+                                <span class="project-tag">SEO</span>
+                                <span class="project-tag">SEM</span>
+                                <span class="project-tag">平台运营</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 工程公司网站建设 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">工程公司网站建设与营销</h3>
+                            <p>为工程公司搭建实用型企业网站，重点突出主营业务、工程案例和服务流程。通过清晰的页面结构和内容呈现，让客户快速了解公司实力，有效提升咨询量。</p>
+                            <div class="project-tags">
+                                <span class="project-tag">企业网站</span>
+                                <span class="project-tag">SEO</span>
+                                <span class="project-tag">SEM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 律师网站优化 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">律师网站建设与优化</h3>
+                            <p>为律师团队制作实用的业务展示网站，重点优化咨询路径和内容结构。通过关键词布局、专业内容撰写和站内体验优化，提高在搜索引擎中的曝光率，引导更多咨询。</p>
+                            <div class="project-tags">
+                                <span class="project-tag">SEO优化</span>
+                                <span class="project-tag">内容策略</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 海外独立站 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">海外独立站建设与运营</h3>
+                            <p>为跨境电商客户使用 WordPress 和 Shopify 搭建海外独立站，包含产品上架、页面布局、营销内容以及推广设置。通过持续的 SEO 优化与 SEM 广告投放，帮助客户在海外市场稳定获取订单。</p>
+                            <div class="project-tags">
+                                <span class="project-tag">独立站</span>
+                                <span class="project-tag">SEO</span>
+                                <span class="project-tag">SEM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我部分 -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title">联系我</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info">
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">姓名</label>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的姓名" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="contactInfo">联系方式</label>
+                                            <input type="text" class="form-control" id="contactInfo" name="contactInfo" placeholder="请输入手机号或邮箱" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">留言内容</label>
+                                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="请输入您的留言" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">提交留言</button>
+                                <div id="formMessage" class="mt-3"></div>
+                            </form>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5>电子邮箱</h5>
+                                    <p><a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h5>联系电话</h5>
+                                    <p>0512-57828333</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p class="copyright">©2025 <a href="https://www.wangxiansheng.com" class="text-white text-decoration-underline">王先生</a> 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 平滑滚动 - 已调整偏移量
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 20, // 减少偏移量
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 表单提交
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const contactInfo = document.getElementById('contactInfo').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const formMessage = document.getElementById('formMessage');
+
+            if(!name || !contactInfo || !message) {
+                formMessage.textContent = "请填写所有字段";
+                formMessage.className = "alert alert-danger mt-3";
+                return;
+            }
+
+            // 使用指定的API接口
+            fetch('https://lianxi.wangxiansheng.com/api.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, contactInfo, message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                formMessage.textContent = data.message || "提交成功！";
+                formMessage.className = "alert alert-success mt-3";
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error(error);
+                formMessage.textContent = "提交失败，请稍后再试";
+                formMessage.className = "alert alert-danger mt-3";
+            });
+        });
+    </script>
+</body>
+</html>
